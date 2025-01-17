@@ -1,0 +1,47 @@
+analyze_trends:
+  description: >
+    Research and analyze current trends related to {topic}:
+    1. Identify emerging industry trends
+    2. Find recent news and developments
+    3. Highlight key market movements
+    4. Spot conversation patterns on LinkedIn
+    5. Note any viral topics or hashtags
+
+    Focus on trends that would be relevant and engaging for LinkedIn audiences.
+    Consider both industry-specific trends and content format trends.
+  agent: trend_analyst
+  expected_output: >
+    A comprehensive trend analysis report with key trends, their relevance to LinkedIn,
+    and potential angles for content creation.
+
+gather_data:
+  description: >
+    Collect and organize relevant data about {topic}:
+    1. Find supporting statistics from credible sources
+    2. Identify compelling case studies
+    3. Gather expert opinions and quotes
+    4. Compile relevant research findings
+    5. Look for surprising or counterintuitive data points
+
+    Focus on data that would be engaging and shareable on LinkedIn.
+  agent: data_researcher
+  expected_output: >
+    A detailed data compilation with statistics, expert insights, and case studies
+    that can be used to create compelling LinkedIn content.
+  context: [analyze_trends]
+
+analyze_competitor_content:
+  description: >
+    Analyze top-performing LinkedIn content about {topic}:
+    1. Identify viral posts in this space
+    2. Analyze engagement patterns
+    3. Extract common themes and formats
+    4. Note successful hooks and calls-to-action
+    5. Identify gaps in current content
+
+    Pay special attention to posts with high engagement rates.
+  agent: competitor_analyst
+  expected_output: >
+    A competitor content analysis report highlighting successful content strategies,
+    formats, and engagement patterns.
+  context: [analyze_trends, gather_data]

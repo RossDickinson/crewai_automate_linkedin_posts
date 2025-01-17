@@ -1,0 +1,10 @@
+extract_content:
+  description: >
+    Extract and structure content from the property listing at {url}
+    Include:
+    - All property details
+    - All amenities and features
+    - All image URLs
+    - Contact information
+  expected_output: "JSON containing structured property data including image urls"
+  agent: content_extractor
