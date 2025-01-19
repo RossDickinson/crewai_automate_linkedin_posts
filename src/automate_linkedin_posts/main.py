@@ -24,11 +24,11 @@ class WebContentState(BaseModel):
 class LinkedInContentFlow(Flow[WebContentState]):
     @start()
     def gather_user_input(self):
-        print("Gathering input url.")
-        self.state.url = input("Enter the url of the real estate property listing.")
-        """Determine whether to start with extraction or research based on input"""
+        """Skip interactive input when called from API"""
+        if not self.state.url and not self.state.question:
+            raise ValueError("Either url or question must be provided")
+        return self.initialize_flow()
 
-    @listen(gather_user_input)
     def initialize_flow(self):
         """Determine whether to start with extraction or research based on input"""
         print("Starting flow execution")
