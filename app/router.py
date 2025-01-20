@@ -1,23 +1,34 @@
+# app/router.py
 from fastapi import APIRouter
-from app.routers import linkedin_router, flows_router
+from app.routers import linkedin_router, flows_router, content_router, extraction_router
 
+# Create main API router
 api_router = APIRouter()
 
-api_router.include_router(linkedin_router.router, prefix="/linkedin", tags=["linkedin"])
-api_router.include_router(flows_router.router, prefix="/flows", tags=["flows"])
+# Include all sub-routers
+api_router.include_router(
+    linkedin_router,
+    prefix="/linkedin",
+    tags=["linkedin"]
+)
 
-# app/routers/linkedin_router.py
-from fastapi import APIRouter, HTTPException
-from app.services.linkedin_service import LinkedInService
-from app.models.linkedin_models import LinkedInPostRequest, LinkedInPostResponse
+api_router.include_router(
+    flows_router,
+    prefix="/flows",
+    tags=["flows"]
+)
 
-router = APIRouter()
-linkedin_service = LinkedInService()
+api_router.include_router(
+    content_router,
+    prefix="/content",
+    tags=["content"]
+)
 
-@router.post("/generate-post", response_model=LinkedInPostResponse)
-async def generate_linkedin_post(request: LinkedInPostRequest):
-    try:
-        result = await linkedin_service.generate_post(request)
-        return result
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+api_router.include_router(
+    extraction_router,
+    prefix="/extraction",
+    tags=["extraction"]
+)
+
+# Make sure router is available for import
+__all__ = ['api_router']

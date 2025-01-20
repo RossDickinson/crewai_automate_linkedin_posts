@@ -11,9 +11,8 @@ from pathlib import Path
 project_root = Path(__file__).parent.parent
 sys.path.append(str(project_root))
 
-# Import routers directly
-from app.routers.linkedin_router import router as linkedin_router
-from app.routers.flows_router import router as flows_router
+# Import main router
+from app.router import api_router
 
 # Load environment variables
 load_dotenv()
@@ -33,9 +32,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include the routers directly
-app.include_router(linkedin_router, prefix="/linkedin", tags=["linkedin"])
-app.include_router(flows_router, prefix="/flows", tags=["flows"])
+# Include the main router
+app.include_router(api_router)
 
 if __name__ == "__main__":
     # Get port from environment variable or default to 8000
