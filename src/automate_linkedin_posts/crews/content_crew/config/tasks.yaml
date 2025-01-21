@@ -1,56 +1,15 @@
 write_post:
   description: >
-    Create an engaging LinkedIn post using this property information:
+    Generate a LinkedIn post using the following style and information:
+    
+    Target Audience: {target_audience}
+    
+    Writing Style:
+    {writing_style_text}
+    
+    Content to transform:
     {extracted_info}
     
-    Follow this precise structure and style guide:
-
-    HEADLINE:
-    - Lead with property type in caps
-    - Include key features in concise subtitle
-    - State basic property specs (beds/baths/sqft)
-    - Display price prominently
-    - Include agent attribution
-
-    CONTENT:
-    - Open with emotional hook using sensory details
-    - Transform features into experiences
-    - Use "Imagine..." statements for buyer visualization
-    - Present unique selling propositions in bullet format
-    - End with clear call-to-action
-
-    TONE:
-    - Sophisticated yet accessible
-    - Aspirational but authentic
-    - Descriptive without being verbose
-    - Emphasize exclusivity and uniqueness
-    - Balance emotional and practical appeal
-
-    FORMATTING:
-    - Use strategic line breaks for readability
-    - Implement bullet points for key features
-    - Include photo markers [📸]
-    - Structure in descending importance
-    - Use emojis sparingly and strategically
-
-    HASHTAGS:
-    - Group at end of post
-    - Include mix of:
-      * Property-specific tags
-      * Location-based tags
-      * Luxury lifestyle tags
-      * Investment-related tags
-      * Industry-standard tags
-
-    MUST AVOID:
-    - Excessive exclamation points and emojis
-    - Cluttered formatting
-    - Technical jargon
-    - Generic descriptions
-    - Overselling/hyperbole
-
-  expected_output: >
-    A sophisticated LinkedIn post following the provided structure exactly, 
-    maintaining elegant tone and professional formatting while showcasing 
-    the property's unique value proposition.
+    Using the writing style guidelines above, create a compelling LinkedIn post that resonates with the target audience while incorporating the key information provided.
+  expected_output: "A well-crafted LinkedIn post following the specified writing style"
   agent: linkedin_writer

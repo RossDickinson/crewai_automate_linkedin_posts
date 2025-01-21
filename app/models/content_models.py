@@ -1,10 +1,10 @@
-# app/models/content_models.py
-from pydantic import BaseModel, HttpUrl
+from pydantic import BaseModel
 from typing import Optional, Dict, Any
 
 class ContentRequest(BaseModel):
-    url: HttpUrl
-    extracted_info: Optional[Dict[str, Any]] = None
+    extracted_info: Dict[str, Any]
+    writing_style_id: str
+    target_audience: str
 
 class ContentResponse(BaseModel):
     content: str
